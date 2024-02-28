@@ -1,5 +1,6 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
+#REST -> Tesis Doctoral
 
 estudiante = [
     {
@@ -22,6 +23,8 @@ estudiante = [
     }
 ]
 
+# Herencia
+# class "nombreClase"("claseHeredada")
 class RESTRequestHandler(BaseHTTPRequestHandler):
    def do_GET(self):
       if self.path == 'lista_estudiantes':
@@ -60,6 +63,15 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
           self.end_headers()
           self.wfile.write(json.dumps({"Error": "Ruta no existente"}).encode('utf-8'))
 
+# 200 -> Exito
+# 201 -> 
+# 204 -> Exito sin respuesta
+# 400 -> Error humano/capa 8
+# 401 -> Recurso protegido
+# 404 -> Not Found Page (Pagina no encontrada)
+def do_POST(self):
+   if self.path == '/agrega_estudiante':
+      content_length = int(self.head)
 
 def run_server(port = 8000):
    try:
@@ -77,3 +89,16 @@ def run_server(port = 8000):
 
 if __name__ == "__main__":
 	run_server()
+
+# REST esta basado en HTTP
+# Request - Requerimiento
+
+# API (reglas y protocolos)
+#  - Comanda -> solicitud, direccion, peticion...
+# Comunicacion Cliente - Servidor
+# Cliente -> Aplicaciones (web,...)
+# CLIENTE - API - SERVIDOR
+# comensal - mesero - chef
+
+
+
