@@ -14,7 +14,7 @@ response = requests.request(
 )
 print(response.text)
 
-#
+# SOAP - REST
 # Metodo de consulta
 # 
 # Protocolo - Patron de arquitectura

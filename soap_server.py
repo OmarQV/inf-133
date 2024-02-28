@@ -29,13 +29,13 @@ dispatcher.register_function(
    args={"nombre": str}
 )
 dispatcher.register_function(
-   "Sumar",
+   "SumaDosNumeros",
    sumar,
    returns={"resultado": str},
    args={"num1": int, "num2": int}
 )
 dispatcher.register_function(
-   "Es_Plaindromo",
+   "CadenaPalindromo",
    es_palindromo,
    returns={"esPalindromo": bool},
    args={"cadena": str}
