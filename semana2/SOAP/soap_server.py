@@ -1,10 +1,12 @@
 from http.server import HTTPServer
 from pysimplesoap.server import SoapDispatcher, SOAPHandler
-
-# No se usa
+# SOAP -> No se usa
 
 def saludar(nombre):
    return "¡Hola, {}!".format(nombre)
+
+def number_to_dollars(dNum):
+    return "$" + str(dNum)
 
 def sumar(num1, num2):
    resultado = num1 + num2
@@ -13,7 +15,6 @@ def sumar(num1, num2):
 def es_palindromo(cadena):
    cadena = cadena.lower().replace(" ","")
    return cadena == cadena[::-1].lower().replace(" ","")
-
 
 dispatcher = SoapDispatcher(
    "ejemplo-soap-server",
@@ -29,6 +30,12 @@ dispatcher.register_function(
    saludar,
    returns={"saludo": str},
    args={"nombre": str}
+)
+dispatcher.register_function(
+    "NumberToDollars",
+    number_to_dollars,
+    returns={"dolares": str},
+    args={"dNum": float},
 )
 dispatcher.register_function(
    "SumaDosNumeros",
