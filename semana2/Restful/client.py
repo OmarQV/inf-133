@@ -2,65 +2,49 @@ import requests
 
 # Consultando a un servidor RESTful
 url = "http://localhost:8000/"
-# GET obtener a todos los estudiantes por la ruta /estudiantes
+
+print("+++++++++++++++++++++++++++++++++++")
+# GET - Agrega una ruta para mostrar todas las carreras
+ruta_carreras = url + "carreras"
+get_carreras = requests.request(method="GET", url=ruta_carreras)
+print("- Agrega una ruta para mostrar todas las carreras")
+print(get_carreras.text)
+print("---------------------------------------------------")
+
+# GET - Agrega una ruta que devuelva a todos los estudiantes de 
+# la carrera de “Economía”
+ruta_economia = url + "economia"
+get_economia = requests.request(method="GET", url=ruta_economia)
+print("- Todos los estudiantes de la carrera de “Economía”")
+print(get_economia.text)
+print("---------------------------------------------------")
+
+# POST - Agrega a 2 estudiantes de “Economía”
+    # 1er estudiante
+ruta_post = url + "economia"
+nuevo_estudiante = {
+    "nombre": "Maria",
+    "apellido": "Vega",
+}
+post_new_economia = requests.request(method="POST", url=ruta_post, json=nuevo_estudiante)
+#print(post_new_economia.text)
+print("*****************************")
+    # 2do estudiante
+ruta_post = url + "economia"
+nuevo_estudiante = {
+    "nombre": "Lucas",
+    "apellido": "Olivera",
+}
+post_new_economia = requests.request(method="POST", url=ruta_post, json=nuevo_estudiante)
+#print(post_new_economia.text)
+print("---------------------------------------------------")
+
+"""
+# DELETE elimina todos los estudiantes por la ruta /estudiantes
+ruta_eliminar = url + "estudiantes"
+eliminar_response = requests.request(method="DELETE", url=ruta_eliminar)
+print(eliminar_response.text)
+"""
 ruta_get = url + "estudiantes"
 get_response = requests.request(method="GET", url=ruta_get)
 print(get_response.text)
-# POST agrega un nuevo estudiante por la ruta /estudiantes
-ruta_post = url + "estudiantes"
-nuevo_estudiante = {
-    "nombre": "Juanito",
-    "apellido": "Pérez",
-    "carrera": "Ingeniería Agronomica",
-}
-
-post_response = requests.request(method="POST", url=ruta_post, json=nuevo_estudiante)
-print(post_response.text)
-
-# DELETE elimina todos los estudiantes por la ruta /estudiantes
-ruta_eliminar = url + "estudiantes"
-eliminar_response = requests.request(method="DELETE", 
-                                    url=ruta_eliminar)
-print(eliminar_response.text)
-
-# POST agrega un nuevo estudiante por la ruta /estudiantes
-ruta_post = url + "estudiantes"
-nuevo_estudiante = {
-    "nombre": "Juanito",
-    "apellido": "Pérez",
-    "carrera": "Ingeniería Agronomica"
-}
-
-post_response = requests.request(method="POST", 
-                        url=ruta_post,
-                        json=nuevo_estudiante)
-print(post_response.text)
-
-nuevo_estudiante = {
-    "nombre": "Pedrito",
-    "apellido": "Lopez",
-    "carrera": "Ingeniería",
-}
-
-post_response = requests.request(method="POST", url=ruta_post, json=nuevo_estudiante)
-print(post_response.text)
-
-# GET busca a un estudiante por id /estudiantes/{id}
-ruta_filtrar_nombre = url + "estudiantes/1"
-filtrar_nombre_response = requests.request(method="GET", 
-                                url=ruta_filtrar_nombre)
-print(filtrar_nombre_response.text)
-
-# PUT actualiza un estudiante por la ruta /estudiantes
-ruta_actualizar = url + "estudiantes"
-estudiante_actualizado = {
-    "id": 1,
-    "nombre": "Juan",
-    "apellido": "Pérez",
-    "carrera": "Ingeniería Agronomica",
-}
-put_response = requests.request(
-    method="PUT", url=ruta_actualizar, 
-    json=estudiante_actualizado
-)
-print(put_response.text)
