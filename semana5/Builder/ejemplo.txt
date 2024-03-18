@@ -1,0 +1,9 @@
+PIZZERIA
+
+Necesitamos construir una API para un cadena de pizzerías que
+maneja diversos sabores según la región de su sucursal.
+● Por ejemplo, solo en la ciudad de La Paz ofrecen pizza con charque
+de llama y solo en la ciudad de Beni tiene disponible una pizza de
+carne de yacaré
+● Los únicos datos en común entre las pizzas son: tamaño y masa
+● La cantidad de toppings es variable
