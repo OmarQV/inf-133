@@ -1,6 +1,6 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
-#REST -> Tesis Doctoral
+# REST -> Arquitectura (Tesis Doctoral)
 
 estudiante = [
     {

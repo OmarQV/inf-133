@@ -2,9 +2,11 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 from graphene import ObjectType, String, Int, List, Schema, Field
 
+# GRAPHQL -> Lenguaje de consulta
+# Facilita la consulta API - una ruta /graphql
+# Puedo hacer una API graphql
 # HTTPServer : almacena la direccion del servidor
-# 
-# 
+# API GRAPHQL no puede ser Restful
 
 class Estudiante(ObjectType):
    id = Int()

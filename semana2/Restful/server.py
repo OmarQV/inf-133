@@ -1,6 +1,7 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
-
+# API RESTFUL -> Rutas en plural
+# Verbos (uso correcto de los verbos):
 # GET - obtener un recurso
 # POST - crear un nuevo recurso
 # DELETE - eliminar recursos
