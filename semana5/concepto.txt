@@ -1,0 +1,34 @@
+ARQUITECTURA
+- Monolitica
+- MVC
+- Microservicios
+- Serverrless
+
+** Principios ->
+________Monolitica___________
+
+MVC
+ Modelo | Vista | Controlador
+
+Modelo -> logica de la aplicacion
+Vista -> Interfaz de usuario
+Controlador -> gestiona las solicitudes del usuario
+
+
+MICROSERVICIOS
+Los microservicios son un tipo de arquitectura que permite diseñar aplicaciones 
+cuyos elementos funcionan de forma independiente pero coordinada.
+
+SERVERLESS
+- Administra el proveedor de servicios en la nube
+La computación sin servidor (o serverless para abreviar) es un modelo de ejecución 
+en el que el proveedor en la nube (AWS, Azure o Google Cloud) es responsable de 
+ejecutar un fragmento de código mediante la asignación dinámica de los recursos.
+
+**arquitectura arm**
+
+CRUD
+C -> Create - crear nuevos elementos
+R -> Read - leer - recuperación de datos existentes
+U -> Update - actualizar - modificar los datos existentes
+D -> Delete - eliminar - eliminar elementos existentes
