@@ -7,3 +7,10 @@ de llama y solo en la ciudad de Beni tiene disponible una pizza de
 carne de yacaré
 ● Los únicos datos en común entre las pizzas son: tamaño y masa
 ● La cantidad de toppings es variable
+
+BUILDER
+- Patron de diseño - Creacionista
+
+SOLID
+S - Responsabilidad unica
+Cada clase solo tiene una Responsabilidad
