@@ -1,6 +1,7 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
+# Fabrica de chocolates
 chocolates = {}
 # Tabletas -> tablet
 # Bombom -> bonbon
