@@ -70,6 +70,7 @@ try:
 except:
    print("Error al crear tabla")
 
+
 # Insertar datos de platos
 # Mesa 1
 conn.execute(
