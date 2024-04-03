@@ -1,19 +1,25 @@
 # Importar módulo sqlite3
 import sqlite3
 
+# BASE DE DATOS 
+# RELACIONAL    -------   NOSQL
+# 
+
 # Crear conexión a la base de datos
 conn = sqlite3.connect("instituto.db")
 
 # Crear tabla de carreras
-conn.execute(
-   """
-   CREATE TABLE CARRERAS
-   (id INTEGER PRIMARY KEY,
-   nombre TEXT NOT NULL,
-   duracion INTEGER NOT NULL);
-   """
-)
-
+try:
+   conn.execute(
+      """
+      CREATE TABLE CARRERAS
+      (id INTEGER PRIMARY KEY,
+      nombre TEXT NOT NULL,
+      duracion INTEGER NOT NULL);
+      """
+   )
+except sqlite3.OperationalError:
+   print("La tabla CARRERAS ya existe")
 # Insertar datos de carreras
 conn.execute(
    """
@@ -42,16 +48,18 @@ for row in cursor:
 # ----------------
 
 # Crear tablas de estudiantes
-conn.execute(
-   """
-   CREATE TABLE ESTUDIANTES
-   (id INTEGER PRIMARY KEY,
-   nombre TEXT NOT NULL,
-   apellido TEXT NOT NULL,
-   fecha_nacimiento DATE NOT NULL);
-   """
-)
-
+try:
+   conn.execute(
+      """
+      CREATE TABLE ESTUDIANTES
+      (id INTEGER PRIMARY KEY,
+      nombre TEXT NOT NULL,
+      apellido TEXT NOT NULL,
+      fecha_nacimiento DATE NOT NULL);
+      """
+   )
+except sqlite3.OperationalError:
+   print("La tabla ESTUDIANTES ya existe")
 # Insertar datos de estudiantes
 # Estudiante 1
 conn.execute(
@@ -86,18 +94,20 @@ for row in cursor:
 # (2, 'María', 'Lopez', '1999-08-20')
 
 # Crear tabla de matriculación
-conn.execute(
-   """
-   CREATE TABLE MATRICULACION
-   (id INTEGER PRIMARY KEY,
-   estudiante_id INTEGER NOT NULL,
-   carrera_id INTEGER NOT NULL,
-   fecha DATE NOT NULL,
-   FOREIGN KEY (estudiante_id) REFERENCES ESTUDIANTES(id),
-   FOREIGN KEY (carrera_id) REFERENCES CARRERAS(id));
-   """
-)
-
+try:
+   conn.execute(
+      """
+      CREATE TABLE MATRICULACION
+      (id INTEGER PRIMARY KEY,
+      estudiante_id INTEGER NOT NULL,
+      carrera_id INTEGER NOT NULL,
+      fecha DATE NOT NULL,
+      FOREIGN KEY (estudiante_id) REFERENCES ESTUDIANTES(id),
+      FOREIGN KEY (carrera_id) REFERENCES CARRERAS(id));
+      """
+   )
+except sqlite3.OperationalError:
+   print("La tabla MATRICULACION ya existe")
 # Insertar datos de matriculación
 conn.execute(
    """
@@ -183,5 +193,8 @@ for row in cursor:
 # (1, 1, 1, '2024-01-15')
 # (2, 2, 2, '2024-01-30')
 
+print()
+# Guardar
+conn.commit()
 # Cerrar conexión
 conn.close()

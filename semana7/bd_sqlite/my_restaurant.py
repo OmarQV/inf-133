@@ -16,8 +16,8 @@ try:
       categoria TEXT NOT NULL);
       """
    )
-except:
-   print("Error al crear tabla")
+except sqlite3.OperationalError:
+   print("La tabla PLATOS ya existe")
 
 
 # Insertar datos de platos
@@ -49,6 +49,11 @@ conn.execute(
    VALUES ('Ensalada', 6.99,'Vegetariana')
    """
 )
+
+# SALIDA
+# 'Hamburguesa', 8.99,'Americana'
+# -> 'Hamburguesa', 9.99,'Americana'
+
 # Listar datos de platos
 print("\nPLATOS:")
 cursor = conn.execute(
@@ -67,8 +72,8 @@ try:
       numero INTEGER NOT NULL);
       """
    )
-except:
-   print("Error al crear tabla")
+except sqlite3.OperationalError:
+   print("La tabla MESAS ya existe")
 
 
 # Insertar datos de platos
@@ -123,8 +128,8 @@ try:
       FOREIGN KEY (mesa_id) REFERENCES MESAS(id));
       """
    )
-except:
-   print("Error al crear tabla")
+except sqlite3.OperationalError:
+   print("La tabla PEDIDOS ya existe")
 
 
 # Pedido 1
@@ -163,6 +168,67 @@ cursor = conn.execute(
 for row in cursor:
    print(row)
 
+print("\n*"*50)
+# Actualiza el precio del plato con id 2 (Hamburguesa) a 9.99
+conn.execute(
+   """
+   UPDATE PLATOS
+   SET precio = 9.99
+   WHERE id = 2
+   """
+)
+# Listar datos de platos
+print("\nPLATOS: Actualiza el precio:")
+cursor = conn.execute(
+   "SELECT * FROM PLATOS"
+)
+for row in cursor:
+   print(row)
+# Cambia la categoría del plato con id 3 (Sushi) a "Fusión"
+conn.execute(
+   """
+   UPDATE PLATOS
+   SET categoria = "Fusión"
+   WHERE id = 3
+   """
+)
+# Listar datos de platos
+print("\nPLATOS: Cambia la categoría")
+cursor = conn.execute(
+   "SELECT * FROM PLATOS"
+)
+for row in cursor:
+   print(row)
+# Elimina el plato con id 4 (Ensalada) de la tabla de platos
+conn.execute(
+   """
+   DELETE FROM PLATOS
+   WHERE id = 4
+   """
+)
+print("\nPLATOS: Elimina el plato con id 4")
+cursor = conn.execute(
+   "SELECT * FROM PLATOS"
+)
+for row in cursor:
+   print(row)
+# Elimina el pedido con id 3
+conn.execute(
+   """
+   DELETE FROM PEDIDOS
+   WHERE id = 3
+   """
+)
+print("\nPEDIDOS: Elimina el pedido con id 3")
+cursor = conn.execute(
+   "SELECT * FROM PEDIDOS"
+)
+for row in cursor:
+   print(row)
+# ----------------------------
+
 print()
+# Guardar datos
+conn.commit()
 # Cerrar conexión
 conn.close()
