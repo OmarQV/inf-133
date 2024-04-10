@@ -29,7 +29,7 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
    def do_GET(self):
       if self.path == 'lista_estudiantes':
          self.send_response(200)
-         self.send_header('Content-type', 'application/jaon')
+         self.send_header('Content-type', 'application/json')
          self.end_headers()
          self.wfile.write(json.dumps(estudiante).encode('utf-8'))
       elif self.path == '/buscar_nombre':
