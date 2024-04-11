@@ -103,17 +103,19 @@ for row in cursor:
    print(row)
 print()
 
-print("\n--------- AGREGA ----------")
-conn.execute(
+print("\n--------- 5 ----------")
+cursor = conn.execute(
    """
-   INSERT INTO EMPLEADOS (nombres, apellido_paterno, apellido_materno, fecha_contratacion, departamento_id, cargo_id, fecha_creacion) 
-   VALUES ('Carlos', 'Sanchez', 'Rodriguez', '09-04-2024', 1, 1, '09-04-2024')
+   SELECT e.nombres, e.apellido_paterno, e.apellido_materno, d.nombre 
+   AS departamento, c.nombre 
+   AS cargo, s.salario
+   FROM EMPLEADOS e
+   JOIN DEPARTAMENTOS d ON e.departamento_id = d.id
+   JOIN CARGOS c ON e.cargo_id = c.id
+   JOIN SALARIOS s ON e.id = s.empleado_id;
    """
 )
-conn.execute(
-   """
-   INSERT INTO SALARIOS (empleado_id, salario, fecha_inicio, fecha_fin, fecha_creacion) 
-   VALUES (1, 3000, '09-04-2024', '05-012-2024', '09-04-2024')
-   """
-)
+for row in cursor:
+   print(row)
+
 conn.commit()

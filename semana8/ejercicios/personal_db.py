@@ -185,6 +185,19 @@ for row in cursor:
    print(row)
 
 
+print("\n--------- AGREGA ----------")
+conn.execute(
+   """
+   INSERT INTO EMPLEADOS (nombres, apellido_paterno, apellido_materno, fecha_contratacion, departamento_id, cargo_id, fecha_creacion) 
+   VALUES ('Carlos', 'Sanchez', 'Rodriguez', '09-04-2024', 1, 3, '09-04-2024')
+   """
+)
+conn.execute(
+   """
+   INSERT INTO SALARIOS (empleado_id, salario, fecha_inicio, fecha_fin, fecha_creacion) 
+   VALUES (3, 3500, '09-04-2024', '05-012-2024', '09-04-2024')
+   """
+)
 
 
 print()
