@@ -103,7 +103,7 @@ for row in cursor:
    print(row)
 print()
 
-print("\n--------- 5 ----------")
+print("\n--------- 4 ----------")
 cursor = conn.execute(
    """
    SELECT e.nombres, e.apellido_paterno, e.apellido_materno, d.nombre 
