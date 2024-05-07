@@ -1,0 +1,6 @@
+WEB APP
+-> GET and POST
+Formula:
+--- Controlador/id/accion ---
+Controlador/accion
+Controlador
