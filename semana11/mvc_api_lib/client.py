@@ -79,4 +79,4 @@ print("\n--------- LISTA DE LIBROS ---------")
 url = f"{BASE_URL}/books"
 response = requests.get(url, headers=headers)
 print(response.json())
-print()
+print("")
