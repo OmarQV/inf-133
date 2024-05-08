@@ -21,24 +21,24 @@ print(response.json())
 print("\n--------- NUEVO LIBRO ---------")
 url = f"{BASE_URL}/books"
 libro2 = {
-   "title": "La Sombra del Viento",
-   "author": "Carlos Ruiz Zafón",
-   "edition": "10ma edicion",
+   "title": "Contabilidad Basica",
+   "author": "Garandillas",
+   "edition": "9na edicion",
    "available": "Si",
 }
-response = requests.post(url, json=libro1, headers=headers)
+response = requests.post(url, json=libro2, headers=headers)
 print("Creando un nuevo libro")
 print(response.json())
 # ! CREAR UN NUEVO LIBRO
 print("\n--------- NUEVO LIBRO ---------")
 url = f"{BASE_URL}/books"
 libro3 = {
-   "title": "La Sombra del Viento",
-   "author": "Carlos Ruiz Zafón",
-   "edition": "10ma edicion",
+   "title": "Contabilidad Internacional",
+   "author": "Centellas",
+   "edition": "5ta edicion",
    "available": "Si",
 }
-response = requests.post(url, json=libro1, headers=headers)
+response = requests.post(url, json=libro3, headers=headers)
 print("Creando un nuevo libro...")
 print(response.json())
 
@@ -54,7 +54,7 @@ print(response.json())
 
 # ? PUT
 print("\n--------- UPDATE LIBRO ID: 1 ---------")
-url = f"{BASE_URL}/books/2"
+url = f"{BASE_URL}/books/1"
 book_update = {
    "title": "Contabilidad Intermedia",
    "author": "Gutierrez",
