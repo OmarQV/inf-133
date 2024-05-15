@@ -1,0 +1,3 @@
+pip install flask-Login
+
+pip install Flask-JWT-Extended

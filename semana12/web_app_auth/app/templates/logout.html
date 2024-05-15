@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Cerrar sesión</h1>
+<p>¿Estás seguro de que quieres cerrar sesión?</p>
+<a href="{{ url_for('user.logout') }}">Sí, cerrar sesión</a>
+<a href="{{ url_for('user.list_users') }}">No, volver a la lista de usuarios</a>
+{% endblock %}
