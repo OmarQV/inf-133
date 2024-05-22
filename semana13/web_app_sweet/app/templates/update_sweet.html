@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="subtitle is-2">Editar Dulce</h2>
+<form method="post">
+   <div class="field">
+      <label for="brand">Marca:</label>
+      <div class="control">
+         <input type="text" id="brand" name="brand" required class="input" value="{{ sweet.brand }}">
+      </div>
+   </div>
+   <div class="field">
+      <label for="weight">Peso:</label>
+      <div class="control">
+         <input type="text" id="weight" name="weight" required class="input" value="{{ sweet.weight }}">
+      </div>
+   </div>
+   <div class="field">
+      <label for="flavor">Sabor:</label>
+      <div class="control">
+         <input type="text" id="flavor" name="flavor" required class="input" value="{{ sweet.flavor }}">
+      </div>
+   </div>
+   <div class="field">
+      <label for="origin">Origen:</label>
+      <div class="control">
+         <input type="text" id="origin" name="origin" required class="input" value="{{ sweet.origin }}">
+      </div>
+   </div>
+   <input type="submit" value="Guardar Cambios" class="button is-primary">
+</form>
+{% endblock %}
