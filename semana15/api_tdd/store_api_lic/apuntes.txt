@@ -1,0 +1,11 @@
+pip install pytest pytest-flask
+
+$env:PYTHONPATH="D:\Documents\OMAR\2024 INFORMÁTICA\1-2024 SEG INFO\6. INF-133 Programación web III\inf-133\semana15\api_tdd\store_api_lic"
+
+
+pytest
+pytest -v
+
+pytest -v tests/test_product_controller_admin.py::test_get_products
+
+pytest -v tests/test_user_controller.py::test_register_duplicate_user
